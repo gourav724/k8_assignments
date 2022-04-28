@@ -159,3 +159,40 @@ kubia-rs-g1-4xdr2   1/1     Running   0          7m51s   app=kubia
 kubia-rs-g1-cdhp2   1/1     Running   0          12m     app=kubia
 kubia-rs-g1-jtgd7   1/1     Running   0          10m     app=kubia
 
+
+
+
+################################################################################################
+
+3. your comment on WHY result app STOPPED working after db pod stop
+GK  Post deletion of DB pod, result POD lost connection with DB and getting below highlighted error. Post deleting the result POD, new POD got initiated which established the connection with DB again and started populating stats on Result GUI.
+
+root@ip-172-31-31-186:~[root@ip-172-31-31-186 ~]# kubectl logs result-5d57b59f4b-7tjcx
+Wed, 27 Apr 2022 15:06:09 GMT body-parser deprecated bodyParser: use individual json/urlencoded middlewares at server.js:67:9
+Wed, 27 Apr 2022 15:06:09 GMT body-parser deprecated undefined extended: provide extended option at ../node_modules/body-parser/index.js:105:29
+App running on port 80
+Waiting for db
+Connected to db
+Error performing query: Error: This socket has been ended by the other party
+
+
+4. your answer to HOW YOU MADE THE RESULT POD work.
+GK  Post deletion of DB POD, Result POD lost connection with DB and Once DB POD came UP, restarted Result POD to establish the connection again with DB and APP started working as expected.
+
+5. Some jargons (just names are enough- dont need sentences) that you learnt from the 40-hour Training session
+GK  Now, I’ve Basic understanding w.r.t following mentioned concepts.
+•	Docker Configurations
+•	Images
+•	Container 
+•	Microservices
+•	PODs
+•	Replication Controller
+•	Replica Set
+•	Deployment
+•	Jobs
+•	Services
+•	CNI
+•	Volume
+•	PV, PVC
+•	Calico and HELM
+
